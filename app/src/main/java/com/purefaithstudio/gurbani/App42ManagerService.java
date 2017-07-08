@@ -1,24 +1,22 @@
-package com.purefaithstudio.gurbani;
+/*package com.purefaithstudio.gurbani;
 
 import android.content.Context;
 import android.util.Log;
+
 import com.shephertz.app42.paas.sdk.android.App42API;
 import com.shephertz.app42.paas.sdk.android.App42CallBack;
 import com.shephertz.app42.paas.sdk.android.storage.StorageService;
 import com.shephertz.app42.paas.sdk.android.upload.Upload;
 import com.shephertz.app42.paas.sdk.android.upload.UploadService;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
+*/
 /**
  import com.shephertz.app42.paas.sdk.android.App42Response;
  * Created by MY System on 11/29/2015.
  */
-
+/* commented code
 public class App42ManagerService {
     final String APIKEY = "01a46d45949fc5d814681ed8423b12ca6f6bf43deeb1cae1ecdee7dc105f87e1";
     final String SECRET_KEY = "36ba071d7447b7ab85267d9b7224d6bb1f8e49a88b2cf3b86673919e43f22b48";
@@ -40,7 +38,6 @@ public class App42ManagerService {
         getFiles();
         // storage=App42API.buildStorageService();
     }
-
     public void getFiles() {
         String name = "";
         uploadService.getAllFiles(new App42CallBack() {
@@ -67,7 +64,7 @@ public class App42ManagerService {
             public void onException(Exception e) {
                 Log.i("Tag", e.toString());
             }
-        });
+        });*/
        /* uploadService.getAllFilesCount(new App42CallBack() {
             public void onSuccess(Object response) {
                 App42Response app42response = (App42Response) response;
@@ -79,7 +76,7 @@ public class App42ManagerService {
             }
         });*/
 
-
+/*
     }
     public StringBuffer loadMap()
     {
@@ -98,48 +95,5 @@ public class App42ManagerService {
     public ArrayList<Upload.File> getFileArrayList() {return fileList;  }
 
     public ArrayList<Upload.File> getShabadFileArrayList() { return shabadList;  }
-//was for json search depricated
-  /*  public void addExtra(ShabadExtras SE)
-    {
-
-        json=new JSONObject();
-        try {
-            json.put("name",SE.getName());
-            json.put("extra",parser.toJson(SE));
-            Storage storage = storageService.saveOrUpdateDocumentByKeyValue(DBName, Collection,"name",SE.getName(), json.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-    public void getExtra(String searchString)
-    {
-        Query q1 = QueryBuilder.build("name", searchString, Operator.LIKE);
-            storageService.findDocumentsByQuery(DBName, Collection, q1, new App42CallBack() {
-                public void onSuccess(Object response) {
-                    Storage storage = (Storage) response;
-                    try {
-                        ArrayList<Storage.JSONDocument> jsonDocList = storage.getJsonDocList();
-                        for (Storage.JSONDocument jsonDoc : jsonDocList)
-                        {
-                            System.out.println("objectId is " + jsonDoc.getDocId());
-                            json = new JSONObject(jsonDoc.getJsonDoc());
-                            System.out.println(json.get("extras"));
-                            ShabadExtras shabadExtras = parser.fromJson(ShabadExtras.class, (String) json.get("extras"));
-                            shabadExtraList.add(shabadExtras);
-                        }
-                        Fragment4.upDownAdapter.updateList(shabadExtraList);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                public void onException(Exception ex) {
-                    System.out.println("Exception Message" + ex.getMessage());
-                }
-            });
-    }*/
 }
+commented code*/

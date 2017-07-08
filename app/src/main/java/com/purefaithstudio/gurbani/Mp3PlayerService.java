@@ -2,6 +2,7 @@ package com.purefaithstudio.gurbani;
 
 import android.app.Service;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -29,7 +30,7 @@ public class Mp3PlayerService extends Service implements MediaPlayer.OnCompletio
         try {
             player.setDataSource(url);
             Log.i("RecordShow", "datasource " + url);
-            // player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            player.setAudioStreamType(AudioManager.STREAM_MUSIC);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {

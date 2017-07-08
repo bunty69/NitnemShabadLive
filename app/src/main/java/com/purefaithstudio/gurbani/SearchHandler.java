@@ -17,8 +17,8 @@ public class SearchHandler {
     HashMap<String, Upload.File> fileHashMap;
 
     public SearchHandler() {
-        keyList = MainActivity.apm.loadMap();
-        this.fileHashMap = MainActivity.apm.getMap();
+        /*keyList = MainActivity.apm.loadMap();
+        this.fileHashMap = MainActivity.apm.getMap();*/
         Log.i("Harsim", "" + keyList);
     }
 

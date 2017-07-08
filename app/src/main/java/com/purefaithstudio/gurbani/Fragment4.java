@@ -70,7 +70,7 @@ public class Fragment4 extends Fragment implements UpDownAdapter.ClickListener, 
             setHasOptionsMenu(true);
             searcher = new SearchHandler();
             shabaddata = new ArrayList<>();
-            shabaddata = MainActivity.apm.getShabadFileArrayList();
+            //shabaddata = MainActivity.apm.getShabadFileArrayList();
             Log.i("Playercheck", "Intent created");
             context.registerReceiver(receiver, new IntentFilter("com.purefaithstudio.gurbani.Mp3Player"));
             mAudioManager = (AudioManager) getActivity().getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
@@ -79,7 +79,7 @@ public class Fragment4 extends Fragment implements UpDownAdapter.ClickListener, 
             wait = new Wait();
             playerController = new PlayerControllerMp3(getActivity().getApplicationContext());
             Toggler.resetStates();
-            if (!NetworkConnectionDetector.isConnectingToInternet(context) || !MainActivity.apm.load)
+            if (!NetworkConnectionDetector.isConnectingToInternet(context))
                 Toast.makeText(context, "Failed To Connect!!! Check your Internet Connection", Toast.LENGTH_LONG);
         } catch (Exception e) {
             Log.i("AppNitnem", "cannot create Fragment4");
@@ -199,7 +199,7 @@ public class Fragment4 extends Fragment implements UpDownAdapter.ClickListener, 
     public void search(String searchString) {
         if(searchString.equals("") || searchString == null)
         {
-            shabaddata = MainActivity.apm.getShabadFileArrayList();
+            //shabaddata = MainActivity.apm.getShabadFileArrayList();
         }
         else {
             shabaddata = searcher.search(searchString);

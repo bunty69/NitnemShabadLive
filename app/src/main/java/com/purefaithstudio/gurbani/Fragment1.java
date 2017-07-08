@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.shephertz.app42.paas.sdk.android.upload.Upload;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -49,6 +50,16 @@ public class Fragment1 extends Fragment implements MyArrayAdapter.ClickListener,
     private View currentView;
     private boolean serviceStarted;
     private String[] names = {"chaupaisahib", "sukhmanisahib", "japjisahib", "rehrassahib", "anandsahib", "jaapsahib", "asadivar", "tavprasad"};
+    private String[] pathUrls = {
+            "https://www.sikhnet.com/gurbani/audio/play/16256/Chaupaee_Sahib.mp3",
+            "https://www.sikhnet.com/gurbani/audio/play/7357/Bhai Niranjan Singh - Sukhmani Sahib.mp3",
+            "https://www.sikhnet.com/gurbani/audio/play/13429/Giani Thaker Singh - Japji Sahib.mp3",
+            "https://www.sikhnet.com/gurbani/audio/play/7220/Bhai Harjinder Singh (Srinagar) - Rehras Sahib.mp3",
+            "https://www.sikhnet.com/gurbani/audio/play/11750/Giani Sant Singh Maskeen - Anand Sahib.mp3",
+            "https://www.sikhnet.com/gurbani/audio/play/10994/Prof Satnam Singh Sethi - Jaap Sahib_0.mp3",
+            "https://www.sikhnet.com/gurbani/audio/play/11939/Bhai Nirmal Singh - Asa Di Vaar.mp3",
+            "https://www.sikhnet.com/gurbani/audio/play/38492/swaiyaee.mp3"
+    };
     private boolean pause = true;
     private AudioManager mAudioManager;
     private Wait wait = null;
@@ -192,6 +203,7 @@ public class Fragment1 extends Fragment implements MyArrayAdapter.ClickListener,
             b.putInt("key3", title);
             i.putExtras(b);
             startActivity(i);
+            //pathUrl is not used here
         } catch (Exception e) {
             Log.i("AppNitnem", "Add to intent failed/cannot start Activity Second");
             e.printStackTrace();
@@ -230,7 +242,7 @@ public class Fragment1 extends Fragment implements MyArrayAdapter.ClickListener,
             //((ImageView) currentView).setImageResource(R.drawable.play);
             currentView = view;
             Bundle b = new Bundle();
-            b.putString("url", getUrl(position));
+            b.putString("url", pathUrls[position]);
             intent.putExtras(b);
             wait.show(getFragmentManager(), "tag2");
             getActivity().getApplicationContext().startService(intent);
@@ -302,11 +314,11 @@ public class Fragment1 extends Fragment implements MyArrayAdapter.ClickListener,
             }
     }
 
-    private String getUrl(int position) throws NullPointerException {
+   /* private String getUrl(int position) throws NullPointerException {
         boolean found = false;
-        ArrayList<Upload.File> files = MainActivity.apm.getFileArrayList();
+        ArrayList<File> files = MainActivity.Files.getFileArrayList();
         String url = "";
-        for (Upload.File file : files) {
+        for (File file : files) {
             if (names[position].equals(file.getName())) {
                 url = file.getUrl();
                 Log.i("Playercheck", "Url founded pos:" + position + "  " + url);
@@ -318,5 +330,5 @@ public class Fragment1 extends Fragment implements MyArrayAdapter.ClickListener,
         if(!found)
             Log.i("Playercheck", "baani not found url");
         return url;
-    }
+    }*/
 }

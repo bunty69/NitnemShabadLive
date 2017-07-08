@@ -31,7 +31,6 @@ import com.google.android.gms.analytics.Tracker;
 
 public class MainActivity extends ActionBarActivity {
     public static String font = "punjabi";
-    public static App42ManagerService apm;
     public static Display display;
     public static MainActivity mainActivity;
     static InterstitialAd interstitialAd;
@@ -94,9 +93,6 @@ public class MainActivity extends ActionBarActivity {
         mainActivity = new MainActivity();//this is to have access to service running func anywhere
         display = getWindowManager().getDefaultDisplay();
         //load APM service
-        if (!App42ManagerService.flag) {
-            apmLoad();
-        }
         //fragment setup
         fragmentManager = getSupportFragmentManager();
         fragment = new Fragment1();
@@ -154,30 +150,6 @@ public class MainActivity extends ActionBarActivity {
                 .build();
         Log.i("admob", "requested");
         interstitialAd.loadAd(adRequest);
-    }
-
-    private void apmLoad() {
-        final ProgressDialog dialog=new ProgressDialog(MainActivity.this);
-        dialog.setMessage("Loading...");
-        dialog.setCancelable(false);
-        dialog.setInverseBackgroundForced(false);
-        dialog.show();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                apm = new App42ManagerService(MainActivity.this);
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                MainActivity.this.runOnUiThread(new Runnable() {
-                    public void run() {
-                        dialog.dismiss();
-                    }
-                });
-            }
-        }).start();
     }
 
     private void display(int position) {
